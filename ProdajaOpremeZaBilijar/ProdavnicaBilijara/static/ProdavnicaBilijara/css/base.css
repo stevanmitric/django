@@ -1,0 +1,387 @@
+/* Font import */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap');
+
+/* Reset default styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #1e1e1e; /* Dark background color */
+    color: #fff; /* White text color */
+}
+
+/* Headings */
+h2, h3, h4, h5, h6 {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+    font-weight: bold;
+}
+
+h1 {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+    font-weight: bold;
+    margin-left: 20px;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+    color: #ff4081; /* Pink link color */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #d81b60; /* Darker pink on hover */
+}
+
+/* Buttons and form elements */
+a.button,
+input[type="submit"] {
+    color: #fff;
+    background: #ff4081; /* Pink background for buttons */
+    border-radius: 4px;
+    padding: 15px 25px;
+    font-size: 16px;
+    border: 0;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-left: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #fff; /* Text color for labels */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd; /* Border color for input fields */
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: #ff4081;
+}
+
+a.button.light {
+    color: #fdc3c3;
+    background: #1e1e1e; /* Dark background for light button */
+    border: 2px solid #fff; /* White border for contrast */
+}
+
+a.button:hover,
+input[type="submit"]:hover {
+    background: #d81b60; /* Darker pink on hover */
+}
+
+/* Text alignment */
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+table th,
+table td {
+    text-align: left;
+    font-size: 16px;
+    padding: 20px;
+}
+
+tbody tr:nth-child(odd) {
+    background: #2e2e2e; /* Darker gray background for odd rows */
+}
+
+tbody tr.subtotal {
+    background: #4e4e4e; /* Even darker gray background for subtotal row */
+}
+
+thead th,
+tbody tr.total {
+    background: #ff4081;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Header and subheader */
+#header,
+#subheader {
+    padding: 20px;
+    overflow: auto;
+}
+
+#subheader {
+    background: #2e2e2e; /* Dark gray background for subheader */
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#header .logo {
+    font-family: 'Ubuntu', sans-serif;
+    float: left;
+    color: #fff;
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+#subheader .cart {
+    float: right;
+    padding-top: 4px;
+}
+
+/* Content and sidebar */
+#content {
+    padding: 40px;
+    overflow: hidden;
+}
+
+#sidebar {
+    width: 220px;
+    padding: 40px 20px 0 0;
+    float: left;
+    background-color: #2e2e2e; /* Dark gray background for sidebar */
+    box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    margin-top: 80px;
+}
+
+#sidebar h3 {
+    font-size: 1.8em;
+    color: #ffffff;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar li {
+    margin-bottom: 20px;
+}
+
+#sidebar a {
+    text-decoration: none;
+    color: #ff4081;
+    transition: color 0.3s ease;
+    border-radius: 10%;
+    margin-left: 20px;
+}
+
+#sidebar a:hover {
+    color: #d81b60;
+}
+
+#main {
+    float: left;
+    width: 75%;
+    margin-right: -240px;
+    overflow: hidden;
+}
+
+/* Product list and details */
+.product-list .item {
+    width: 30%;
+    padding: 30px;
+    float: left;
+    text-align: center;
+    line-height: 1.6;
+    background: #2e2e2e; /* Dark gray background for product items */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 30px 60px 20px;
+    border-radius: 12px;
+}
+
+.product-list .item img {
+    width: 100%;
+    margin-bottom: 25px;
+    border-radius: 12px;
+}
+
+.product-detail {
+    text-align: justify;
+}
+
+.product-detail .price {
+    color: #ff4081;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.product-detail img {
+    width: 50%;
+    float: left;
+    padding: 0 30px 30px 0;
+    border-radius: 12px;
+}
+
+.product-detail h1 {
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.product-detail h2 {
+    margin-top: 30px;
+}
+
+/* Order form and info */
+.order-form {
+    float: left;
+    width: 50%;
+    /* float: right;
+    width: 30%; */
+    background: #2e2e2e; /* Dark gray background for order info */
+    padding: 30px;
+    color: #fff;
+    border-bottom: 8px solid #ff4081;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+.order-info {
+    float: right;
+    width: 30%;
+    background: #2e2e2e; /* Dark gray background for order info */
+    padding: 30px;
+    color: #fff;
+    border-bottom: 8px solid #ff4081;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+}
+
+.order-info h3 {
+    color: #ff4081;
+}
+
+.order-info ul li {
+    margin: 20px 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+.order-info p {
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    color: #fff; /* Text color for paragraphs */
+}
+
+/* Example styles, feel free to adjust */
+
+p.highlight {
+    background-color: #ff4081; /* Pink background for highlighted paragraphs */
+    padding: 10px;
+    border-radius: 8px;
+    color: #fff; /* Text color for highlighted paragraphs */
+}
+
+p.warning {
+    color: #dc1616; /* Red text color for warning paragraphs */
+    font-weight: bold;
+}
+
+.order-info span {
+    float: right;
+}
+
+/* Negative text */
+.neg {
+    color: #dc1616;
+}
+
+/* Languages and recommendations */
+.languages {
+    float: right;
+    padding-top: 20px;
+    font-size: 16px;
+}
+
+.languages ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+.languages ul li {
+    float: left;
+    margin: 0 20px 0 0;
+    font-size: 16px;
+}
+
+.languages p {
+    float: left;
+    margin: 0;
+}
+
+.recommendations {
+    clear: both;
+}
+
+.recommendations div {
+    float: left;
+}
+
+.recommendations img {
+    width: 200px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+}
+
+.recommendations p {
+    clear: both;
+}
+
+.recommendations.cart {
+    width: 60%;
+    float: left;
+    overflow: auto;
+}
+
+.recommendations.cart h3 {
+    margin-top: 0;
+}
+
+.recommendations.cart .item {
+    margin-right: 30px;
+}
+
+.recommendations.cart img {
+    width: 120px;
+    border-radius: 8px;
+}
+
+/* Braintree hosted fields */
+form div.field {
+    font-size: 16px;
+    color: #666;
+    width: 100%;
+    height: 50px;
+    margin-bottom: 30px;
+    padding: 15px;
+    border: 2px solid #ddd;
+    background: #2e2e2e; /* Dark gray background for form fields */
+    border-radius: 8px;
+}

@@ -1,0 +1,34 @@
+{% extends "ProdavnicaBilijara/base.html" %}
+{% load static %}
+{% block title %} {% if category %}{{ category.name }}{% else %}Proizvodi{% endif %}
+{% endblock %}
+{% block content %}
+    <div id="sidebar">
+        <h3>
+            Kategorije
+        </h3>
+        <ul>
+            <li {% if not category %}class="selected"{% endif %}>
+                <a href='{% url "ProdavnicaBilijara:ListaProizvoda" %}'>Svi proizvodi</a>
+            </li>
+            {% for c in categories %}
+            <li {% if category.slug == c.slug %}class="selected"{% endif %}>
+                <a href="{{ c.ApsolutniURL }}">{{ c.name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <div id="main" class="product-list">
+        <h1>{% if category %}{{ category.name }}{% else %}Proizvodi{% endif %}</h1>
+        {% for product in products %}
+            <div class="item">
+                <a href="{{ product.ApsolutniURL }}">
+                    <img src='{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}' alt="">
+                </a>
+                <a href="{{ product.ApsolutniURL }}">{{ product.name }}</a>
+                <br>
+                &euro;{{ product.price }}
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

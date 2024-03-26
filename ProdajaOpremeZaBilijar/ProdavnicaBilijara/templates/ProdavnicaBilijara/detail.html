@@ -1,0 +1,22 @@
+{% extends "ProdavnicaBilijara/base.html" %}
+{% load static %}
+{% block title %}
+    {{ product.name }}
+{% endblock %}
+{% block content %}
+    <div class="product-detail">
+        <img src='{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}' alt="">
+        <h1>{{ product.name }}</h1>
+        <h2>
+            <a href="{{ product.ApsolutniURL }}">{{ product.category }}</a>
+        </h2>
+        <p class="price">&euro;{{ product.price }}</p>
+        <form action='{% url "KorpaZaKupovinu:AddToCart" product.id %}' method="POST">
+            {{ formazadodavanjeproizvodaukorpu }}
+            {% csrf_token %}
+            <input type="submit" value="Dodaj u korpu">
+        </form>
+        {{ product.description|linebreaks }}
+        <!-- <p id="demo">{% url 'KorpaZaKupovinu:AddToCart' product.id %}</p> -->
+    </div>
+{% endblock %}

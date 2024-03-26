@@ -1,0 +1,49 @@
+{% extends "ProdavnicaBilijara/base.html" %}
+{% load static %}
+{% block title %} Korpa za kupovinu {% endblock %}
+{% block content %}
+    <h1>Korpa za kupovinu</h1>
+    <table class="cart">
+        <thead>
+            <tr>
+                <th>Proizvod</th><th>Kolicina</th>
+                <th>Ukloni iz korpe</th><th>Cena po komadu</th><th>Cena</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart %}
+
+                {% with product=item.product %}
+                    <tr>
+                        <!-- <td>
+                            <a href="{{ product.ApsolutniURL }}">
+                                <img src='{% if product.image %}{{ product.image.url }}{% else %}{% static "img/no_image.png" %}{% endif %}' alt="">
+                            </a>
+                        </td> -->
+                        <td>{{ product.name }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>
+                            <form action='{% url "KorpaZaKupovinu:RemoveFromCart" product_id=product.id %}' method="POST">
+                                <input type="submit" value="Ukloni">
+                                {% csrf_token %}
+                            </form>
+                        </td>
+                        <td class="num">${{ item.price }}</td>
+                        <td class="num">${{ item.total_price }}</td>
+                    </tr>
+                {% endwith %}
+            {% endfor %}
+
+            <tr class="total">
+                <td>Total</td>
+                <td colspan="4"></td>
+                <td class="num">${{ cart.GetTotalPrice }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="text-right">
+        <a href='{% url "ProdavnicaBilijara:ListaProizvoda" %}' class="button light">Nastavak kupovine</a>
+        <!-- Here we will add link to check order-->
+        <a href='{% url "Order:AddOrder" %}' class="button">Provera</a>
+    </p>
+{% endblock %}

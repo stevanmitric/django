@@ -1,0 +1,38 @@
+{% load static  %}
+<link rel="stylesheet" type="text/css" href="{% static 'ProdavnicaBilijara/css/base.css' %}">
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Prodavnica Bilijara{% endblock %}</title>
+    <!-- You may include your static files or stylesheets here -->
+</head>
+<body>
+    <div id="header">
+        <a href="/" class="logo">Prodaja Opreme Za Bilijar</a>
+    </div>
+    <div id="subheader">
+        <div class="cart">
+            {{ cart|length }}
+                {% with numberOfItems=cart|length %}
+                    {% if numberOfItems > 0 %}
+                        U korpi se nalazi:
+                            <a href='{% url "KorpaZaKupovinu:DetaljiKorpe" %}'>
+                                {{ numberOfItems }} kom, ukupna cena
+                                &euro;{{ cart.GetTotalPrice }}
+                            </a>
+                    {% else %}
+                            Korpa je prazna.
+                    {% endif %}
+                {% endwith %}
+        </div>
+    </div>
+    <div id="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
+
